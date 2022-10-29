@@ -1,1 +1,1 @@
-export const blogAddr = '0x4535A3F09C74AaC97eEb6E2EF569270b26717701'
+export const blogAddr = '0x3b2221b3280a96DF81CA7155Cac7B31BA8782d45'

@@ -1,16 +1,22 @@
+import { useEffect, useState } from "react";
 import styles from "../../styles/Panel.module.css";
+import blogAbi from '../utils/blogAbi.json'
+import {blogAddr} from '../utils/addresses'
+import { useLocation } from "react-router-dom"
 
 import Blog from './Blog'
 
+export function Panel ({Blogs}) {
+	// const [Blogs, setBlogs] = useState();
+	console.log("panel", {Blogs})
 
-export const Panel = () => {
 	return (
-		<div className={styles.panel_container}>
+		<><div className={styles.panel_container}>
 			<div className={styles.panel}>
 				<div className={styles.box}>
-					<Blog title={"Title Placeholder"} description={"Description Placeholder"} date={Date.now()} tags={['Test', 'Fun', 'lols']} />
+					<Blog allBlogs={Blogs}/>
 				</div>
 			</div>
-		</div>
+		</div></>
 	);
 };

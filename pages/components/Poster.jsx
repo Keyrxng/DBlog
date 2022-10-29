@@ -1,29 +1,21 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import styles from "../../styles/Home.module.css";
 import { Section } from "../layout/section";
 import Navbar from "../components/Navbar";
 import { Form } from "@web3uikit/core";
-import { ThirdwebStorage } from "@thirdweb-dev/storage";
 import blogAbi from '../utils/blogAbi.json'
 import {blogAddr} from '../utils/addresses'
-import { alchemy } from '../utils/alchemy' 
+import { ThirdwebStorage } from "@thirdweb-dev/storage";
+
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 
 function Poster() {
-	const [value, setValue] = useState("");
 	const [post, setPost] = useState();
-	const [postTitle, setPostTitle] = useState();
-	const [postDesc, setPostDesc] = useState();
 	const [postImg, setPostImg] = useState();
+	const [allBlogs, setAllBlogs] = useState([]);
 
 	const editorRef = useRef(null); 
-
-    // Using default settings - pass in a settings object to specify your API key and network
-
-    const web3 = createAlchemyWeb3(
-        "wss://polygon-mumbai.g.alchemy.com/v2/-z5MVCeYJhwocIX9iwkcCbNmUq0odNWo",
-      );
 
 	const log = () => {
 		if (editorRef.current) {
@@ -31,7 +23,10 @@ function Poster() {
 			console.log(editorRef.current.getContent());
 		}
 	};
-
+	const web3 = createAlchemyWeb3(
+		"wss://polygon-mumbai.g.alchemy.com/v2/-z5MVCeYJhwocIX9iwkcCbNmUq0odNWo",
+	  );
+	  const blogContract = new web3.eth.Contract(blogAbi, blogAddr)
 	const handleSubmit = async () => {
 		console.log("Event Title:", event.target[0].value);
 		console.log("Event Desc:", event.target[1].value);
@@ -45,32 +40,16 @@ function Poster() {
             content: post,
         }]
 
-        // const storage = new ThirdwebStorage();
-        // const uri = await storage.upload(newPost);
-        // const res = await storage.download(uri)
-        // const data = await res.text();
-
 		/// call contract mint function passing data
         let accounts = web3.eth.getAccounts(console.log)
 
-        const blogContract = new web3.eth.Contract(blogAbi, blogAddr, {
-            from: accounts[0],
-            gasPrice: '20000000000',
-        })
 
         let tx = await blogContract.methods.mint(event.target[0].value, event.target[1].value, post).send({from: '0xD0CE7E521d26CAc35a7B10d31d6CCc7ffFF8B15e' });
-        console.log("pre-wait:", tx)
-        await tx
-        console.log(tx)
-        // web3.eth.getAccounts().then(accounts => {
-        //     web3.eth.sendTransaction({
-        //       from: accounts[0],
-        //       to: "0x6A823E…",
-        //       value: "1000000000000000000",
-        //     });
-        //   });
+        const storage = new ThirdwebStorage();
+        const uri = await storage.upload(newPost);
+        const res = await storage.download(uri)
+        const data = await res.text();
 	};
-
     
 
 	return (
@@ -176,6 +155,12 @@ function Poster() {
 								style={{ margin: "5px", scale: "1" }}
 								className={styles.button}
 								onClick={log}
+							>
+								Save Contents
+							</button>
+							<button
+								style={{ margin: "5px", scale: "1" }}
+								className={styles.button}
 							>
 								Save Contents
 							</button>

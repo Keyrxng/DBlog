@@ -1,4 +1,4 @@
-import { Network, Alchemy, Wallet, Utils } from "alchemy-sdk";
+import { Network, Alchemy, Wallet, Utils, Core} from "alchemy-sdk";
 
 const settings = {
 	apiKey: process.env.ALCHEMY_API_KEY,

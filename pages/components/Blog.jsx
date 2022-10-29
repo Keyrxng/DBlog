@@ -1,21 +1,16 @@
 import React,{ useEffect, useState } from "react";
 
-function Blog(props) {
+function Blog(Blogs) {
 	const [title, setTitle] = useState('')
 	const [description, setDescription] = useState('')
 	const [date, setDate] = useState('')
-	const [tags, setTags] = useState([])
+	const [tags, setTags] = useState(['lol', 'lol'])
 
-	function setUp() {
-		setTags(props.tags);
-		setDate(props.date);
-		setDescription(props.description);
-		setTitle(props.title);
+	async function setUp() {
+		console.log("blog: ", Blogs)
+	
 	}
-
-	useEffect(() => {
-		setUp();
-	}, [])
+	setUp()
 
   return (
 	<>
@@ -31,9 +26,8 @@ function Blog(props) {
 			<div className="flex flex-wrap space-x-3">
 				<ul className="flex flex-wrap space-x-3">
 				{tags.map((e, i) =>{
-					console.log(e)
 					return (
-					<a rel="noopener noreferrer" href="#" className="inline-block px-2 py-1 text-sm font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900">{e}</a>
+					<a key={i} rel="noopener noreferrer" href="#" className="inline-block px-2 py-1 text-sm font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900">{e}</a>
 					)
 				})}
 				</ul>
@@ -43,5 +37,4 @@ function Blog(props) {
 </div></>
   )
 }
-
 export default Blog

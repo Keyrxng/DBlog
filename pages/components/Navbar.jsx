@@ -2,10 +2,13 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 import React from 'react'
 import styles from "../../styles/Home.module.css";
 import Link from 'next/link'
-
+import { getURL } from 'next/dist/shared/lib/utils';
+import { useRouter } from 'next/router';
 
 function Navbar() {
-  return (
+    const { asPath } = useRouter();
+
+    return (
     <header className={styles.header_container}>
     <nav className={styles.navbar}>
         <a
@@ -17,23 +20,23 @@ function Navbar() {
                 src="/alchemy_logo.svg"
             ></img>
         </a>
-        <div className={styles.button_container}>
-            <Link
-                className={styles.button}
-                href='/PostNew'
-            >
-                Post
-            </Link>
-        </div>
-        <div className={styles.button_container}>
+        {asPath == '/PostNew' ? (<div className={styles.button_container}>
             <Link
                 className={styles.button}
                 href='/'
             >
-                Home
+                Post
             </Link>
-        </div>
-
+        </div>):(
+                    <div className={styles.button_container}>
+                    <Link
+                        className={styles.button}
+                        href='/PostNew'
+                    >
+                        Post New
+                    </Link>
+                </div>
+        )}
         <ConnectButton></ConnectButton>
     </nav>
     </header>

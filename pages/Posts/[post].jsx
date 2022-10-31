@@ -26,31 +26,30 @@ const Post = () => {
 	let html;
 	let title;
 	let desc;
-if(	blogs.data == undefined ) {
-	return
-};
-	html = blogs.data.content
+	if (blogs.data == undefined) {
+		return;
+	}
+	html = blogs.data.content;
 	title = blogs.data.title;
 	desc = blogs.data.desc;
-	console.log(blogs.data)
 
 	const components = {
-		p: props => <a {...props} style={{ color: 'purple' }} />,
-	  };
+		p: (props) => <a {...props} style={{ color: "white" }} />,
+	};
 
 	return (
 		<>
 			<div className="w-full dark:bg-gray-900 dark:text-gray-100">
 				<Navbar />
-				<main className={styles.main}>              
-                    <div className="w-5/6 text-justify">
+				<main className={styles.main}>
+					<div className="w-5/6 text-justify">
 						<Section>
-                        <h1 className="text-4xl ">{title}</h1>
-                        <h1 className="text-2xl">{desc}</h1>
-						<h1></h1>
-							<HTMLString html={html} components={components}/>
+							<h1 className="text-4xl ">{title}</h1>
+							<h1 className="text-2xl">{desc}</h1>
+							<h1></h1>
+							<HTMLString html={html} components={components} />
 						</Section>
-                    </div>
+					</div>
 				</main>
 			</div>
 		</>

@@ -8,14 +8,11 @@ import { publicProvider } from "wagmi/providers/public";
 
 export const { chains, provider } = configureChains(
 	[chain.polygonMumbai],
-	[
-		infuraProvider({ apiKey: process.env.INFURA_API_KEY }),
-		publicProvider(),
-	]
+	[infuraProvider({ apiKey: process.env.INFURA_API_KEY }), publicProvider()]
 );
 
 const { connectors } = getDefaultWallets({
-	appName: "create-web3-dapp",
+	appName: "De_Blogs",
 	chains,
 });
 

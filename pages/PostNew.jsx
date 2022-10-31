@@ -1,10 +1,8 @@
-import React from 'react'
-import Poster from './components/Poster'
+import React from "react";
+import Poster from "./components/Poster";
 
 function PostNew() {
-  return (
-    <Poster/>
-  )
+	return <Poster />;
 }
 
-export default PostNew
+export default PostNew;

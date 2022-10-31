@@ -1,7 +1,4 @@
-import { createAlchemyWeb3 } from "@alch/alchemy-web3";
-import { Network, Alchemy, Wallet, Utils, Core} from "alchemy-sdk";
-import blogAbi from '../utils/blogAbi.json'
-import {blogAddr} from '../utils/addresses'
+import { Network, Alchemy } from "alchemy-sdk";
 
 const settings = {
 	apiKey: process.env.ALCHEMY_API_KEY,
@@ -11,4 +8,3 @@ const settings = {
 const alchemy = new Alchemy(settings);
 
 export default alchemy;
-

@@ -156,14 +156,24 @@
         "type": "string"
       },
       {
-        "internalType": "uint256",
-        "name": "date",
-        "type": "uint256"
-      },
-      {
         "internalType": "string",
         "name": "content",
         "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "img",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "tags",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "date",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -320,9 +330,9 @@
     "name": "getTags",
     "outputs": [
       {
-        "internalType": "string[]",
+        "internalType": "string",
         "name": "",
-        "type": "string[]"
+        "type": "string"
       }
     ],
     "stateMutability": "view",
@@ -425,14 +435,24 @@
         "type": "string"
       },
       {
-        "internalType": "uint256",
-        "name": "date",
-        "type": "uint256"
-      },
-      {
         "internalType": "string",
         "name": "content",
         "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "img",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "tags",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "date",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -485,9 +505,9 @@
         "type": "string"
       },
       {
-        "internalType": "string[]",
+        "internalType": "string",
         "name": "_tags",
-        "type": "string[]"
+        "type": "string"
       }
     ],
     "name": "mint",
@@ -765,9 +785,9 @@
         "type": "uint256"
       },
       {
-        "internalType": "string[]",
+        "internalType": "string",
         "name": "_tags",
-        "type": "string[]"
+        "type": "string"
       }
     ],
     "name": "updatePostTags",

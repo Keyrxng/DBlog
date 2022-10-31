@@ -26,9 +26,17 @@ const Post = () => {
 	let html;
 	let title;
 	let desc;
-	html = blogs.data.content;
+if(	blogs.data == undefined ) {
+	return
+};
+	html = blogs.data.content
 	title = blogs.data.title;
 	desc = blogs.data.desc;
+	console.log(blogs.data)
+
+	const components = {
+		p: props => <a {...props} style={{ color: 'purple' }} />,
+	  };
 
 	return (
 		<>
@@ -37,9 +45,10 @@ const Post = () => {
 				<main className={styles.main}>              
                     <div className="w-5/6 text-justify">
 						<Section>
-                        <h1 className="text-4xl">{title}</h1>
+                        <h1 className="text-4xl ">{title}</h1>
                         <h1 className="text-2xl">{desc}</h1>
-							<HTMLString html={html} />
+						<h1></h1>
+							<HTMLString html={html} components={components}/>
 						</Section>
                     </div>
 				</main>

@@ -11,15 +11,15 @@
 	column-gap: 3rem;
 	margin-bottom: 3rem;
 	align-items: center;
-	width: 60%;
+	width: 80%;
 	text-align: justify;
 	
 }
 
 .box{
 	width: 100%;
-	border: 2px solid rgb(236, 236, 236);
-	padding: 2rem 1.5rem;
+	border: 2px solid rgb(232, 224, 224);
+	padding: 2rem 2.5rem;
 	border-radius: 6px;
 }
 

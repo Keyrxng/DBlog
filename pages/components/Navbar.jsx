@@ -25,7 +25,7 @@ function Navbar() {
                 className={styles.button}
                 href='/'
             >
-                Post
+                Home
             </Link>
         </div>):(
                     <div className={styles.button_container}>

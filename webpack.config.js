@@ -4,7 +4,7 @@ module.exports = {
 	//...
 	resolve: {
 		alias: {
-			wagmi: {},
+			modules: ["node_modules"],
 		},
 	},
 };

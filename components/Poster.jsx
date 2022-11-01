@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
-import styles from "../../styles/Home.module.css";
-import Navbar from "../components/Navbar";
+import styles from "../styles/Home.module.css";
+import Navbar from "./Navbar";
 import { Form } from "@web3uikit/core";
 import blogAbi from "../lib/blogAbi.json";
 import { blogAddr } from "../lib/addresses";
@@ -84,7 +84,6 @@ function Poster() {
 		if ((isLoading, isSuccess)) {
 			console.log("success: ", data);
 		}
-		console.log(tx);
 	};
 
 	return (

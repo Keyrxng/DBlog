@@ -1,8 +1,8 @@
 import styles from "./../styles/Home.module.css";
-import Navbar from "./components/Navbar";
-import blogAbi from "./lib/blogAbi.json";
-import { blogAddr } from "./lib/addresses";
-import { Panel } from "./components/panels";
+import Navbar from "../components/Navbar";
+import blogAbi from "../lib/blogAbi.json";
+import { blogAddr } from "../lib/addresses";
+import { Panel } from "../components/panels";
 const { useContractRead } = require("wagmi");
 import { useEffect } from "react";
 

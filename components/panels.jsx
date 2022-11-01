@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import styles from "../../styles/Panel.module.css";
+import styles from "../styles/Panel.module.css";
 
 import Blog from "./Blog";
 

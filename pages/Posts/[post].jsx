@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
-import blogAbi from "../lib/blogAbi.json";
-import { blogAddr } from "../lib/addresses";
+import blogAbi from "../../lib/blogAbi.json";
+import { blogAddr } from "../../lib/addresses";
 const { useContractRead } = require("wagmi");
 import HTMLString from "react-html-string";
-import Navbar from "../components/Navbar";
+import Navbar from "../../components/Navbar";
 import styles from "../../styles/Home.module.css";
 
 const Post = () => {

@@ -4,7 +4,7 @@ import {
 	chains,
 	WagmiConfig,
 	RainbowKitProvider,
-} from "./lib/walletSetup";
+} from "../lib/walletSetup";
 
 function MyApp({ Component, pageProps }) {
 	return (

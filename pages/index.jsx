@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import blogAbi from "./utils/blogAbi.json";
 import { blogAddr } from "./utils/addresses";
 import { Panel } from "./components/panels";
-import { useContractRead } from "wagmi";
+const { useContractRead } = require("wagmi");
 import { useEffect } from "react";
 
 function Posts() {
@@ -15,7 +15,6 @@ function Posts() {
 	});
 
 	const len = blogsLength.data;
-	console.log("LEN", len);
 	let blogPosts = [];
 	let ipfss = [];
 	let tagsSplit = [];
@@ -47,16 +46,9 @@ function Posts() {
 			args: [i + 1],
 		});
 		tagsSplit = tags.data;
-		console.log(blogs);
-		console.log(ipfs);
-		console.log(tags);
 	}
 
-	useEffect(() => {
-		console.log(blogPosts);
-		console.log(ipfss);
-		console.log(tagsSplit);
-	}, [len]);
+	useEffect(() => {}, [len]);
 
 	return (
 		<div className="w-full  dark:bg-gray-900 dark:text-gray-100">

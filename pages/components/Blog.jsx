@@ -59,7 +59,7 @@ function Blog({ Blogs, Images, Tags, index }) {
 	return (
 		<>
 			{Blogs != undefined && (
-				<div className="relative flex items-center flex-col max-w-1xl divide-y xl:flex-row xl:divide-y-0 xl:divide-x dark:bg-gray-900 dark:text-gray-100 divide-gray-700">
+				<div className="relative flex items-center flex-col max-w-1 xl divide-y xl:flex-row xl:divide-y-0 xl:divide-x dark:bg-gray-900 dark:text-gray-100 divide-gray-700">
 					<div className="p-3 space-y-1  xl:ml-2 ">
 						<h3 className="text-3xl font-semibold justify-center text-center">
 							{Blogs.title}

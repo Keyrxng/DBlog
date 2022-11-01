@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import blogAbi from "../utils/blogAbi.json";
 import { blogAddr } from "../utils/addresses";
-import { useContractRead } from "wagmi";
+const { useContractRead } = require("wagmi");
 import HTMLString from "react-html-string";
 import Navbar from "../components/Navbar";
 import { Section } from "../layout/section";
@@ -34,7 +34,21 @@ const Post = () => {
 	desc = blogs.data.desc;
 
 	const components = {
-		p: (props) => <a {...props} style={{ color: "white" }} />,
+		span: (props) => <span {...props} style={{ color: "white" }} />,
+		p: (props) => (
+			<p
+				{...props}
+				className="text-white"
+				style={{ color: "#fffffff" }}
+			/>
+		),
+		a: (props) => (
+			<a
+				{...props}
+				className="text-blue-600 underline"
+				style={{ color: "#fffffff" }}
+			/>
+		),
 	};
 
 	return (

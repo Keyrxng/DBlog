@@ -1,5 +1,4 @@
 import styles from "../../styles/Home.module.css";
-import { Section } from "../components/section";
 import Navbar from "../components/Navbar";
 import blogAbi from "../lib/blogAbi.json";
 import { blogAddr } from "../lib/addresses";
@@ -54,24 +53,22 @@ function Posts() {
 		<div className="w-full  dark:bg-gray-900 dark:text-gray-100">
 			<Navbar />
 			<main className={styles.main}>
-				<Section>
-					<ul>
-						{blogPosts != 0 &&
-							blogPosts.map((Blogs, i) => {
-								return (
-									<li key={i}>
-										<Panel
-											key={i}
-											Tags={tagsSplit}
-											Images={ipfss}
-											Blogs={Blogs}
-											index={i}
-										/>
-									</li>
-								);
-							})}
-					</ul>
-				</Section>
+				<ul>
+					{blogPosts != 0 &&
+						blogPosts.map((Blogs, i) => {
+							return (
+								<li key={i}>
+									<Panel
+										key={i}
+										Tags={tagsSplit}
+										Images={ipfss}
+										Blogs={Blogs}
+										index={i}
+									/>
+								</li>
+							);
+						})}
+				</ul>
 			</main>
 		</div>
 	);

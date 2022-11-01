@@ -10,3 +10,9 @@
 <p class="text-white" style="text-align: center;"><br>Initially the idea and design were built around having a personalised CMS for blogging and content writing in an attempt to improve my social presence and standing. As the project took shape, I began to envision plenty of ways that I could continue to improve on the idea and shape it to facilitate multiple users, introduce paywalls or access restriction gated via NFT ownership and facilitating more creator and consumer ownership rights.</p>
 <p class="text-white" style="text-align: center;"><strong>MVP Achieved, what next?</strong></p>
 <p class="text-white" style="text-align: center;"><br>Only time will tell, this minimum viable product is good for now and will seek to obtain feedback from peers on ways in which I can improve and things I can work on to increase both my frontend skills alongside, more importantly in my opinion, my smart contract knowledge and ability.</p>
+
+<p class="text-white" style="text-align: center;"><strong>Interesting Notes</strong></p>
+
+<ul>
+<p class="text-white" style="text-align: center;"><br/></p>
+<li>

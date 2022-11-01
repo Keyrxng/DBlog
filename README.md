@@ -14,5 +14,6 @@
 <p class="text-white" style="text-align: center;"><strong>Interesting Notes</strong></p>
 
 <ul>
-<p class="text-white" style="text-align: center;"><br/></p>
+<p class="text-white" style="text-align: center;"> '&-nbsp;' minus the hyphen causes errors in the svg rendering via generatePost which shows you the blog post preview<br/></p>
+<p class="text-white" style="text-align: center;"> '&-nbsp;' are line breaks, the output of the return key and need swapped out for shift + return for a standard < br /> which must self-close <br/></p>
 <li>

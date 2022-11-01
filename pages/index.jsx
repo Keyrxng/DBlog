@@ -15,24 +15,28 @@ function Posts() {
 	});
 
 	const len = blogsLength.data;
+	console.log("LEN", len);
 	let blogPosts = [];
 	let ipfss = [];
 	let tagsSplit = [];
 
-	for (let i = 1; i < len; i++) {
-		const blogs = useContractRead({
-			address: blogAddr,
-			abi: blogAbi,
-			functionName: "blogPosts",
-			args: [i],
-		});
+	for (let i = 0; i < 2; i++) {
+		let blogs;
+		if (i != 2) {
+			blogs = useContractRead({
+				address: blogAddr,
+				abi: blogAbi,
+				functionName: "blogPosts",
+				args: [i],
+			});
+		}
 
 		blogPosts.push(blogs.data);
 		const ipfs = useContractRead({
 			address: blogAddr,
 			abi: blogAbi,
 			functionName: "idToImg",
-			args: [i],
+			args: [i + 1],
 		});
 		ipfss.push(ipfs.data);
 
@@ -40,12 +44,19 @@ function Posts() {
 			address: blogAddr,
 			abi: blogAbi,
 			functionName: "getTags",
-			args: [i],
+			args: [i + 1],
 		});
 		tagsSplit = tags.data;
+		console.log(blogs);
+		console.log(ipfs);
+		console.log(tags);
 	}
 
-	useEffect(() => {}, [len]);
+	useEffect(() => {
+		console.log(blogPosts);
+		console.log(ipfss);
+		console.log(tagsSplit);
+	}, [len]);
 
 	return (
 		<div className="w-full  dark:bg-gray-900 dark:text-gray-100">

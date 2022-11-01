@@ -1,10 +1,10 @@
 import "@rainbow-me/rainbowkit/styles.css";
 
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
-const { chain, configureChains, createClient, WagmiConfig } = require("wagmi");
+import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 
-const { infuraProvider } = require("wagmi/providers/infura");
-const { publicProvider } = require("wagmi/providers/public");
+import { infuraProvider } from "wagmi/providers/infura";
+import { publicProvider } from "wagmi/providers/public";
 
 export const { chains, provider } = configureChains(
 	[chain.polygonMumbai],

@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import styles from "../../styles/Home.module.css";
-import { Section } from "./section";
 import Navbar from "../components/Navbar";
 import { Form } from "@web3uikit/core";
 import blogAbi from "../lib/blogAbi.json";
@@ -93,102 +92,104 @@ function Poster() {
 			<Navbar />
 
 			<main className={styles.main}>
-				<Section>
-					<>
-						<div
-							style={{
-								display: "flex",
-								justifyContent: "space-between",
+				<>
+					<div
+						style={{
+							display: "flex",
+							justifyContent: "space-between",
+						}}
+					>
+						<Editor
+							id="lol"
+							apiKey={process.env.POSTER_API_KEY}
+							onInit={(evt, editor) =>
+								(editorRef.current = editor)
+							}
+							initialValue="<p>This is the initial content of the editor.</p>"
+							init={{
+								height: 600,
+								menubar: false,
+								plugins: [
+									"advlist",
+									"autolink",
+									"lists",
+									"link",
+									"image",
+									"charmap",
+									"preview",
+									"anchor",
+									"searchreplace",
+									"visualblocks",
+									"code",
+									"fullscreen",
+									"insertdatetime",
+									"media",
+									"table",
+									"code",
+									"help",
+									"wordcount",
+								],
+								toolbar:
+									"undo redo | blocks | " +
+									"bold italic forecolor | alignleft aligncenter " +
+									"alignright alignjustify | bullist numlist outdent indent | " +
+									"removeformat | help",
+								content_style:
+									"body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
 							}}
-						>
-							<Editor
-								id="lol"
-								apiKey={process.env.POSTER_API_KEY}
-								onInit={(evt, editor) =>
-									(editorRef.current = editor)
-								}
-								initialValue="<p>This is the initial content of the editor.</p>"
-								init={{
-									height: 600,
-									menubar: false,
-									plugins: [
-										"advlist",
-										"autolink",
-										"lists",
-										"link",
-										"image",
-										"charmap",
-										"preview",
-										"anchor",
-										"searchreplace",
-										"visualblocks",
-										"code",
-										"fullscreen",
-										"insertdatetime",
-										"media",
-										"table",
-										"code",
-										"help",
-										"wordcount",
-									],
-									toolbar:
-										"undo redo | blocks | " +
-										"bold italic forecolor | alignleft aligncenter " +
-										"alignright alignjustify | bullist numlist outdent indent | " +
-										"removeformat | help",
-									content_style:
-										"body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
-								}}
-							/>
-							<Form
-								name="thisForm"
-								buttonConfig={{
-									onClick: function noRefCheck() {},
-									theme: "primary",
-								}}
-								data={[
-									{
-										inputWidth: "100%",
-										name: "blog title",
-										type: "text",
-										validation: {
-											required: true,
-										},
-										value: "",
+						/>
+						<Form
+							name="thisForm"
+							buttonConfig={{
+								onClick: function noRefCheck() {},
+								theme: "primary",
+							}}
+							data={[
+								{
+									inputWidth: "100%",
+									name: "blog title",
+									type: "text",
+									validation: {
+										required: true,
 									},
-									{
-										inputWidth: "100%",
-										name: "blog description",
-										type: "text",
-										validation: {
-											required: true,
-										},
-										value: "",
+									value: "",
+								},
+								{
+									inputWidth: "100%",
+									name: "blog description",
+									type: "text",
+									validation: {
+										required: true,
 									},
-									{
-										inputWidth: "100%",
-										name: "blog tags, separate with commas",
-										type: "text",
-										validation: {
-											required: true,
-										},
-										value: "",
+									value: "",
+								},
+								{
+									inputWidth: "100%",
+									name: "blog tags, separate with commas",
+									type: "text",
+									validation: {
+										required: true,
 									},
-									{
-										inputWidth: "100%",
-										name: "Image",
-										type: "file",
-										validation: {
-											required: true,
-										},
-										value: "",
+									value: "",
+								},
+								{
+									inputWidth: "100%",
+									name: "Image",
+									type: "file",
+									validation: {
+										required: true,
 									},
-								]}
-								onChange={handleFileInputChange}
-								onSubmit={handleSubmit}
-								title="New Blog Post"
-							/>
-						</div>
+									value: "",
+								},
+							]}
+							onChange={handleFileInputChange}
+							onSubmit={handleSubmit}
+							title="New Blog Post"
+						/>
+					</div>
+
+					<div className={styles.section}>
+						{" "}
 						<div
 							className={styles.button_container}
 							style={{
@@ -204,10 +205,9 @@ function Poster() {
 							>
 								Save Contents
 							</button>
-							<div className={styles.section}></div>
 						</div>
-					</>
-				</Section>
+					</div>
+				</>
 			</main>
 		</div>
 	);

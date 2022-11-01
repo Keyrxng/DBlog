@@ -1,11 +1,10 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
-import blogAbi from "../utils/blogAbi.json";
-import { blogAddr } from "../utils/addresses";
+import blogAbi from "../lib/blogAbi.json";
+import { blogAddr } from "../lib/addresses";
 const { useContractRead } = require("wagmi");
 import HTMLString from "react-html-string";
 import Navbar from "../components/Navbar";
-import { Section } from "../layout/section";
 import styles from "../../styles/Home.module.css";
 
 const Post = () => {
@@ -56,13 +55,11 @@ const Post = () => {
 			<div className="w-full dark:bg-gray-900 dark:text-gray-100">
 				<Navbar />
 				<main className={styles.main}>
-					<div className="w-5/6 text-justify">
-						<Section>
-							<h1 className="text-4xl ">{title}</h1>
-							<h1 className="text-2xl">{desc}</h1>
-							<h1></h1>
-							<HTMLString html={html} components={components} />
-						</Section>
+					<div className="w-5/6 text-justify flex flex-col justify-center items-center">
+						<h1 className="text-4xl ">{title}</h1>
+						<h1 className="text-2xl">{desc}</h1>
+						<h1></h1>
+						<HTMLString html={html} components={components} />
 					</div>
 				</main>
 			</div>

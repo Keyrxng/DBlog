@@ -1,11 +1,11 @@
 import { useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import styles from "../../styles/Home.module.css";
-import { Section } from "../layout/section";
+import { Section } from "./section";
 import Navbar from "../components/Navbar";
 import { Form } from "@web3uikit/core";
-import blogAbi from "../utils/blogAbi.json";
-import { blogAddr } from "../utils/addresses";
+import blogAbi from "../lib/blogAbi.json";
+import { blogAddr } from "../lib/addresses";
 import { ThirdwebStorage } from "@thirdweb-dev/storage";
 import {
 	usePrepareContractWrite,
